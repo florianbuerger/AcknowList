@@ -69,12 +69,14 @@ open class AcknowViewController: UIViewController {
 
         let textView = UITextView(frame: view.bounds)
         textView.alwaysBounceVertical = true
-        textView.font                 = UIFont.preferredFont(forTextStyle: .body)
+		textView.font                 = UIFont.preferredFont(forTextStyle: .body)
 		#if os(iOS)
 		textView.isEditable           = false
 		textView.dataDetectorTypes    = UIDataDetectorTypes.link
+		textView.textContainerInset   = UIEdgeInsetsMake(12, 10, 12, 10)
+		#elseif os(tvOS)
+		textView.textContainerInset   = UIEdgeInsetsMake(90, 90, 90, 90)
 		#endif
-        textView.textContainerInset   = UIEdgeInsetsMake(12, 10, 12, 10)
 
         view.backgroundColor = UIColor.white
         view.addSubview(textView)
