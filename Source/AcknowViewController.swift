@@ -71,12 +71,14 @@ open class AcknowViewController: UIViewController {
     override open func loadView() {
         let textView = UITextView(frame: CGRect.zero)
         textView.alwaysBounceVertical = true
-        textView.font                 = UIFont.systemFont(ofSize: 17)
+		textView.font                 = UIFont.preferredFont(forTextStyle: .body)
 		#if os(iOS)
 		textView.isEditable           = false
 		textView.dataDetectorTypes    = UIDataDetectorTypes.link
+		textView.textContainerInset   = UIEdgeInsetsMake(12, 10, 12, 10)
+		#elseif os(tvOS)
+		textView.textContainerInset   = UIEdgeInsetsMake(90, 90, 90, 90)
 		#endif
-        textView.textContainerInset   = UIEdgeInsetsMake(12, 10, 12, 10)
 
         if let acknowledgement = self.acknowledgement {
             textView.text = acknowledgement.text
