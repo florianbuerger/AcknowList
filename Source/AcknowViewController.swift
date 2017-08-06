@@ -72,8 +72,10 @@ open class AcknowViewController: UIViewController {
         let textView = UITextView(frame: CGRect.zero)
         textView.alwaysBounceVertical = true
         textView.font                 = UIFont.systemFont(ofSize: 17)
-        textView.isEditable           = false
-        textView.dataDetectorTypes    = UIDataDetectorTypes.link
+		#if os(iOS)
+		textView.isEditable           = false
+		textView.dataDetectorTypes    = UIDataDetectorTypes.link
+		#endif
         textView.textContainerInset   = UIEdgeInsetsMake(12, 10, 12, 10)
 
         if let acknowledgement = self.acknowledgement {
