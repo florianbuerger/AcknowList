@@ -69,16 +69,14 @@ open class AcknowViewController: UIViewController {
 
         let textView = UITextView(frame: view.bounds)
         textView.alwaysBounceVertical = true
-        textView.font = UIFont.preferredFont(forTextStyle: .body)
-        textView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        #if os(iOS)
-            textView.isEditable = false
-            textView.dataDetectorTypes = .link
-        #elseif os(tvOS)
-            textView.isUserInteractionEnabled = true
-            textView.panGestureRecognizer.allowedTouchTypes = [NSNumber(value: UITouch.TouchType.indirect.rawValue)]
-        #endif
-        textView.textContainerInset = UIEdgeInsets.init(top: TopBottomDefaultMargin, left: LeftRightDefaultMargin, bottom: TopBottomDefaultMargin, right: LeftRightDefaultMargin)
+        textView.font                 = UIFont.preferredFont(forTextStyle: .body)
+		#if os(iOS)
+		textView.isEditable           = false
+		textView.dataDetectorTypes    = UIDataDetectorTypes.link
+		#endif
+        textView.textContainerInset   = UIEdgeInsetsMake(12, 10, 12, 10)
+
+        view.backgroundColor = UIColor.white
         view.addSubview(textView)
 
         self.textView = textView
