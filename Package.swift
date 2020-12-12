@@ -4,7 +4,7 @@ import PackageDescription
 let package = Package(
     name: "AcknowList",
     platforms: [
-        .iOS(.v9), .tvOS(.v9)
+        .iOS(.v12), .tvOS(.v9)
     ],
     products: [
         .library(name: "AcknowList", targets: ["AcknowList"])

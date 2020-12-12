@@ -73,7 +73,7 @@ open class AcknowViewController: UIViewController {
 		#if os(iOS)
 		textView.isEditable           = false
 		textView.dataDetectorTypes    = UIDataDetectorTypes.link
-		textView.textContainerInset   = UIEdgeInsetsMake(12, 10, 12, 10)
+		textView.textContainerInset   = UIEdgeInsets(top: 12, left: 10, bottom: 12, right: 10)
 		#elseif os(tvOS)
 		textView.textContainerInset   = UIEdgeInsetsMake(90, 90, 90, 90)
 		#endif
